@@ -38,5 +38,54 @@ public class TaskServiceTest {
 		Assertions.assertNotEquals(taskDescription, service.getListOfTask().get(0).getDescription());
 		}
 	
+	@Test
+	void newLongTaskNameTest() {
+		taskService service = new taskService();
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> service.newTaskID());
+	}
+	@Test
+	void newLongTaskDescriptionTest() {
+		taskService service = new taskService();
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> service.newTaskID());
+	}
+	
+	@Test
+	void newNullTaskNameTest() {
+		taskService service = new taskService();
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> service.newTaskID());
+	}
+	@Test
+	void newNullTaskDecriptionTest() {
+		taskService service = new taskService();
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> service.newTaskID());
+	}
+	
+	@Test
+	void updateTaskNameTest() throws Exception {
+		taskService service = new taskService();
+		service.newTaskID();
+		service.updateName(service.getListOfTask().get(0).getTaskID(), taskName);
+		assertEquals(taskName, service.getListOfTask().get(0).getName());
+	}
+	@Test
+	void updateTaskDescriptionTest() throws Exception {
+		taskService service = new taskService();
+		service.newTaskID();
+		service.updateDescription(service.getListOfTask().get(0).getTaskID(), taskDescription);
+		assertEquals(taskDescription, service.getListOfTask().get(0).getDescription());
+		}
+	
+	@Test
+	void deleteTaskTest() throws Exception {
+		taskService service = new taskService();
+		service.newTaskID();
+		
+	}
+	
+	
 
 }

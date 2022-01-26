@@ -49,32 +49,38 @@ public class TaskTest {
 	// Testing for length errors
 	@Test
 	void testTaskIDLength() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> new task("00000111111", "Task name", "Really descriptive task"));
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> new task("00000111111", "Task name", "Really descriptive task"));
 	}
 	@Test
 	void testNameLength() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> new task("0001", "Task name is too long here", "Really descriptive task"));
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> new task("0001", "Task name is too long here", "Really descriptive task"));
 	}
 	@Test 
 	void testDescriptionLength() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> new task("0001", "Task name", "Really descriptive task is really really really long here and needs to be much shorter"));
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> new task("0001", "Task name", "Really descriptive task is really really really long here and needs to be much shorter"));
 	}
 	
 	// Testing for being null
 	@Test
 	void testTasIDNull() {
 		task task = new task("0001", "Task name", "Really descriptive task");
-		Assertions.assertThrows(IllegalArgumentException.class, () -> task.setTaskID(null));
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> task.setTaskID(null));
 	}
 	@Test
 	void testTaskNameNull() {
 		task task = new task("0001", "Task name", "Really descriptive task");
-		Assertions.assertThrows(IllegalArgumentException.class, () -> task.setName(null));
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> task.setName(null));
 	}
 	@Test
 	void testTaskDescriptionNull() {
 		task task = new task("0001", "Task name", "Really descriptive task");
-		Assertions.assertThrows(IllegalArgumentException.class, () -> task.setDescription(null));
+		Assertions.assertThrows(IllegalArgumentException.class, 
+				() -> task.setDescription(null));
 	}
 	
 
